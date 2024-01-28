@@ -42,7 +42,7 @@ int main(void)
     printf("\nThe Strong numbers are:");
     for (int i = x; i <= y; i++)
     {
-        if(isPalindrome(i))
+        if(isStrong(i))
         {
             printf(" %d", i);
         }
