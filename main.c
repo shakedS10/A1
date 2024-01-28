@@ -51,5 +51,5 @@ int main(void)
         }
     }
     printf("\n");
-    return 1;
+    return 0;
 }
