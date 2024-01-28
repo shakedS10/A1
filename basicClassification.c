@@ -5,6 +5,10 @@ int isPrime(int num)
     {
         return 0;
     }
+    if (num==1)
+    {
+        return 1;
+    }
     
     for ( int i = 2; i <= num; i++)    
     {
