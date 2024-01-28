@@ -7,31 +7,31 @@ ADVANCDED_C = advancedClassificationLoop.o
 ADVANCDED_C_R = advancedClassificationRecursion.o
 FLAGS= -Wall -g
 
-all: makeloops makerecursives makerecursived makelooped makemains makemaindloop makemaindrec
+all: loops recursives recursived looped mains maindloop maindrec
 
-makeloops: libclassloops.a
+loops: libclassloops.a
 libclassloops.a: $(ADVANCDED_C) $(BASIC_C)
 	$(AR) -rcs libclassloops.a $(ADVANCDED_C) $(BASIC_C)
 
-makerecursives: libclassrec.a
+recursives: libclassrec.a
 libclassrec.a: $(ADVANCDED_C_R) $(BASIC_C)
 	$(AR) -rcs libclassrec.a $(ADVANCDED_C_R) $(BASIC_C)
 
-makerecursived: libclassrec.so
+recursived: libclassrec.so
 libclassrec.so: $(ADVANCDED_C_R) $(BASIC_C)
 	$(CC) -shared -o libclassrec.so $(ADVANCDED_C_R) $(BASIC_C)
 
-makelooped: libclassloops.so
+looped: libclassloops.so
 libclassloops.so: $(ADVANCDED_C) $(BASIC_C)
 	$(CC) -shared -o libclassloops.so $(ADVANCDED_C) $(BASIC_C)
 
-makemains: $(MAIN) libclassrec.a
+mains: $(MAIN) libclassrec.a
 	$(CC) $(FLAGS) -o mains $(MAIN) libclassrec.a
 
-makemaindloop: $(MAIN)
+maindloop: $(MAIN)
 	$(CC) $(FLAGS) -o maindloop $(MAIN) ./libclassloops.so
 
-makemaindrec: $(MAIN)
+maindrec: $(MAIN)
 	$(CC) $(FLAGS) -o maindrec $(MAIN) ./libclassrec.so
 
 main.o: $(MAIN) $(NUMCLASS)

@@ -3,10 +3,10 @@
 
 int main(void)
 {
-    printf("enter first number");
+    //printf("enter first number");
     int x, y;
     scanf("%d" , &x);
-    printf("enter second number number");
+    //printf("enter second number number");
     scanf("%d" , &y);
     if(x>y)
     {
